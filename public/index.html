@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="GBK"/>
+  <title>留言板 DEMO</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="css/bootstrap-responsive.min.css" rel="stylesheet"/>
+  <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/jquery.plugin.js"></script>
+  <script src="http://ossweb-img.qq.com/images/js/milo/milo.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <style type="text/css">
+    body {
+      padding-top: 20px;
+      padding-bottom: 40px;
+    }
+
+    /* Custom container */
+    .container-narrow {
+      margin: 0 auto;
+      max-width: 700px;
+    }
+
+    .container-narrow > hr {
+      margin: 30px 0;
+    }
+
+    /* Main marketing message and sign up button */
+    .jumbotron {
+      margin: 60px 0;
+      text-align: center;
+    }
+
+    .jumbotron h1 {
+      font-size: 72px;
+      line-height: 1;
+    }
+
+    .jumbotron .btn {
+      font-size: 21px;
+      padding: 14px 24px;
+    }
+
+    /* Supporting marketing content */
+    .marketing {
+      margin: 60px 0;
+    }
+
+    .marketing p + h4 {
+      margin-top: 28px;
+    }
+
+    .disn {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<div class="container-narrow">
+
+  <div class="masthead">
+    <ul class="nav nav-pills pull-right">
+      <li id="unlogin" class="active"><a href="javascript:LoginManager.login();">登录</a></li>
+      <li id="logined" class="disn">
+        <span>
+          <span id='login_nickname_span'></span>（<span id='login_qq_span'></span>）<span
+          id="qqgame_diamond_content"></span> <span id="qqzone_diamond_content"></span> <span
+          id="x5_diamond_content"></span>，您好！
+        </span>
+
+        <span>
+          <a href="javascript:RoleSelector.show();">查询角色</a>
+          <a href="javascript:LoginManager.logout();">注销</a>
+        </span>
+      </li>
+    </ul>
+    <h3 class="muted">DNF 留言板 DEMO</h3>
+  </div>
+
+  <hr>
+
+  <div class="jumbotron">
+    <form method="post" name="msgForm">
+      <div class="control-group">
+        <label class="control-label" for="ArticleTitle">标题</label>
+
+        <div class="controls">
+          <input name="title" class="input-xxlarge" placeholder="在这儿输入标题"
+                 required="required" type="text" id="ArticleTitle"/></div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="ArticleContent">文章内容</label>
+
+        <div class="controls">
+          <textarea name="content" class="input-block-level" placeholder="在这儿输入内容"
+                    required="required" id="ArticleContent"></textarea></div>
+      </div>
+      <button id="btnSubmit" class="btn btn-success">提交</button>
+      <button id="btnReset" class="btn btn-info" type="reset">重置</button>
+    </form>
+  </div>
+
+  <hr>
+
+  <div class="pagination-centered">
+    <button id="btnClearCache" class="btn btn-warning">清除缓存</button>
+  </div>
+
+  <div class="row-fluid marketing">
+    <div id="messageBoard" class="span12">
+
+    </div>
+    <div class="pagination pagination-centered">
+      <ul>
+        <li id="pageFirst" data-offset="0"><a rel="first" href="#">首页</a></li>
+      </ul>
+    </div>
+    <div>
+      <ul class="pager">
+        <li id="pagePrev" class="previous"><a rel="prev" href="#">← 上一页</a></li>
+        <li id="pageNext" class="next"><a rel="next" href="#">下一页 →</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <hr>
+
+  <div id="cacheSection"></div>
+
+  <div class="footer">
+    <p>&copy; CaiKnife 2014</p>
+  </div>
+
+</div>
+<!-- /container -->
+</body>
+</html>
